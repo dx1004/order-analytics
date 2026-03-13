@@ -1,0 +1,177 @@
+1️⃣ Take feature brief
+2️⃣ Generate code in Cursor
+3️⃣ Generate full test suite
+4️⃣ Debug an introduced error using AI
+5️⃣ Write PR description using Claude
+Everything below is copy-paste ready so participants can immediately start.
+
+1. Feature Brief (Input Document)
+Project: Order Analytics Service
+
+Goal:
+Build a small Python service that analyzes e-commerce order data and provides useful business insights.
+
+Core Features:
+
+1. Load Orders
+The system should load order data from a CSV file.
+
+Fields:
+order_id
+customer_name
+product
+category
+price
+quantity
+order_date
+
+2. Revenue Calculation
+The system should calculate:
+- Total revenue
+- Revenue per product
+- Revenue per category
+
+3. Top Customers
+Return the top N customers by total spending.
+
+4. Monthly Revenue
+Aggregate revenue by month.
+
+5. Simple API Functions
+
+Required functions:
+
+load_orders(file_path)
+
+calculate_total_revenue(orders)
+
+revenue_by_product(orders)
+
+revenue_by_category(orders)
+
+top_customers(orders, n=3)
+
+monthly_revenue(orders)
+
+6. Requirements
+
+- Written in Python
+- Use pandas
+- Code must be modular
+- Should handle missing data gracefully
+- Include docstrings
+- Follow PEP8 style
+
+2. Input Dataset (orders.csv)
+Participants can copy this directly into orders.csv.
+order_id,customer_name,product,category,price,quantity,order_date
+1001,Alice,Laptop,Electronics,1200,1,2024-01-05
+1002,Bob,Phone,Electronics,800,1,2024-01-06
+1003,Charlie,Desk,Furniture,300,1,2024-01-07
+1004,Alice,Mouse,Electronics,25,2,2024-02-10
+1005,Bob,Chair,Furniture,150,1,2024-02-12
+1006,Diana,Headphones,Electronics,200,1,2024-02-15
+1007,Evan,Monitor,Electronics,400,1,2024-03-02
+1008,Alice,Keyboard,Electronics,100,1,2024-03-05
+1009,Charlie,Lamp,Furniture,80,2,2024-03-07
+1010,Diana,Desk,Furniture,300,1,2024-03-09
+
+3. Cursor Prompt (Generate Code)
+Participants paste this inside Cursor AI.
+Using the provided feature brief and orders.csv dataset, generate a Python module called order_analytics.py.
+
+Requirements:
+- Use pandas
+- Implement the following functions:
+
+load_orders(file_path)
+calculate_total_revenue(orders)
+revenue_by_product(orders)
+revenue_by_category(orders)
+top_customers(orders, n=3)
+monthly_revenue(orders)
+
+Revenue = price * quantity
+
+Include:
+- type hints
+- docstrings
+- input validation
+- clean modular code
+
+The file should be production-quality Python.
+
+4. Prompt to Generate Test Suite
+After code is generated.
+Generate a full pytest test suite for order_analytics.py.
+
+Requirements:
+- Use pytest
+- Create test_order_analytics.py
+- Include tests for:
+
+loading orders
+total revenue calculation
+revenue by product
+revenue by category
+top customers
+monthly revenue
+
+Also include:
+- edge case tests
+- missing values
+- empty dataset
+
+5. Introduced Bug (For Debugging Exercise)
+Instructor can insert this bug manually.
+Inside calculate_total_revenue() change:
+Correct code:
+orders["revenue"] = orders["price"] * orders["quantity"]
+Bug version:
+orders["revenue"] = orders["price"] + orders["quantity"]
+This will break revenue calculations and cause test failures.
+
+6. Debugging Prompt (Using AI)
+Participants paste into AI:
+My pytest tests are failing for revenue calculations.
+
+Here is the function:
+
+[paste function]
+
+Here are the failing test errors:
+
+[paste pytest output]
+
+Find the bug and fix it. Explain what went wrong.
+
+7. PR Description Prompt (Using Claude)
+Participants paste this into Claude.
+Write a professional GitHub pull request description.
+
+Project: Order Analytics Service
+
+Changes included:
+- Implemented analytics module for order data
+- Added revenue calculations
+- Implemented top customer analytics
+- Implemented monthly revenue aggregation
+- Added full pytest test suite
+- Fixed bug in revenue calculation
+
+The PR description should include:
+
+Summary
+Features Added
+Bug Fix
+Testing
+Example Output
+
+Expected Final Project Structure
+order-analytics/
+│
+├── orders.csv
+├── order_analytics.py
+├── test_order_analytics.py
+├── requirements.txt
+└── README.md
